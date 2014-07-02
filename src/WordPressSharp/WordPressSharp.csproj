@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IWordPressService.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentFilter.cs" />
     <Compile Include="Models\CustomFields.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="Models\UserFilter.cs" />
     <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WordPressService.cs" />
+    <Compile Include="WordPressSiteCredentials.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

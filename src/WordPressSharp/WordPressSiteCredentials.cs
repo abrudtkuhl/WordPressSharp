@@ -2,7 +2,7 @@
 
 namespace WordPressSharp
 {
-    public class WordPressSite
+    public class WordPressSiteCredentials
     {
         [XmlRpcMember("blog_id")]
         public string BlogId { get; set; }
@@ -12,8 +12,5 @@ namespace WordPressSharp
 
         [XmlRpcMember("password")]
         public string Password { get; set; }
-
-        [XmlRpcMember("post_id")]
-        public string PostId { get; set; }
     }
 }

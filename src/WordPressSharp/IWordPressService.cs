@@ -6,6 +6,6 @@ namespace WordPressSharp
     public interface IWordPressService : IXmlRpcProxy
     {
         [XmlRpcMethod("wp.getPost")]
-        Post GetPost(WordPressSite wordpressSite);
+        Post GetPost(WordPressSiteCredentials wordpressSite, string postId);
     }
 }
