@@ -1,4 +1,5 @@
-﻿using CookComputing.XmlRpc;
+﻿using System;
+using CookComputing.XmlRpc;
 using WordPressSharp.Models;
 
 namespace WordPressSharp
@@ -9,6 +10,6 @@ namespace WordPressSharp
         Post GetPost(int blog_id, string username, string password, int post_id);
 
         [XmlRpcMethod("wp.newPost")]
-        Post NewPost(WordPressSiteConfig siteConfig, Post post);
+        int NewPost(int blog_id, string username, string password, string post_type, string post_title, string post_content, string post_status = "publish");
     }
 }

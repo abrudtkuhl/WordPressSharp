@@ -7,7 +7,7 @@ namespace WordPressSharp.Models
     public class Post
     {
         [XmlRpcMember("post_id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [XmlRpcMember("post_type")]
         public string PostType { get; set; }
