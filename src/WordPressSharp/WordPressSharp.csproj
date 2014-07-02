@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CookComputing.XmlRpcV2">
+      <HintPath>packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CommentFilter.cs" />
+    <Compile Include="Models\CustomFields.cs" />
+    <Compile Include="Models\Enclosure.cs" />
+    <Compile Include="Models\FilterBase.cs" />
+    <Compile Include="Models\MediaItem.cs" />
+    <Compile Include="Models\MediaItemMetadata.cs" />
+    <Compile Include="Models\MediaItemSizes.cs" />
+    <Compile Include="Models\MediamItemSize.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostCommentCount.cs" />
+    <Compile Include="Models\PostFilter.cs" />
+    <Compile Include="Models\PostThumnailImageMeta.cs" />
+    <Compile Include="Models\Taxonomy.cs" />
+    <Compile Include="Models\Term.cs" />
+    <Compile Include="Models\TermFilter.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserFilter.cs" />
+    <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
