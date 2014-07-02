@@ -63,8 +63,8 @@
     <Compile Include="Models\UserFilter.cs" />
     <Compile Include="Models\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WordPressService.cs" />
-    <Compile Include="WordPressSiteCredentials.cs" />
+    <Compile Include="WordPressClient.cs" />
+    <Compile Include="WordPressSiteConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
