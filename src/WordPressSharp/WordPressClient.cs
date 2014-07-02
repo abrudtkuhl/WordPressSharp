@@ -20,7 +20,7 @@ namespace WordPressSharp
 
         public Post GetPost(int postId)
         {
-            return WordPressService.GetPost(WordPressSiteConfig, postId);
+            return WordPressService.GetPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, postId);
         }
 
         public Post NewPost(Post post)
