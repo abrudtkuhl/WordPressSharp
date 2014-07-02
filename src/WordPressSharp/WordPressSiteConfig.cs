@@ -6,8 +6,8 @@ namespace WordPressSharp
     public class WordPressSiteConfig
     {
         [XmlRpcMember("blog_id")]
-        [DefaultValue("1")]
-        public string BlogId { get; set; }
+        [DefaultValue(1)]
+        public int BlogId { get; set; }
 
         [XmlRpcMember("username")]
         public string Username { get; set; }
