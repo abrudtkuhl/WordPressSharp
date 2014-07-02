@@ -25,7 +25,7 @@ namespace WordPressSharp
 
         public int NewPost(Post post)
         {
-            return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post.PostType, post.Title, post.Content);
+            return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post);
         }
 
         public void Dispose()
