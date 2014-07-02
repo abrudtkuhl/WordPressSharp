@@ -23,9 +23,14 @@ namespace WordPressSharp
             return WordPressService.GetPost(WordPressSiteConfig, postId);
         }
 
+        public Post NewPost(Post post)
+        {
+            return WordPressService.NewPost(WordPressSiteConfig, post);
+        }
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            WordPressService = null;
         }
     }
 }
