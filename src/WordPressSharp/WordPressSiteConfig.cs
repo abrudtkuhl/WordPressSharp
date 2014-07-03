@@ -3,10 +3,10 @@ using CookComputing.XmlRpc;
 
 namespace WordPressSharp
 {
+    [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class WordPressSiteConfig
     {
         [XmlRpcMember("blog_id")]
-        [DefaultValue(1)]
         public int BlogId { get; set; }
 
         [XmlRpcMember("username")]
