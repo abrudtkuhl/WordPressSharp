@@ -23,6 +23,12 @@ namespace WordPressSharp
             return WordPressService.GetPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, postId);
         }
 
+        public Post[] GetPosts(PostFilter postFilter)
+        {
+            return WordPressService.GetPosts(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, postFilter);
+        }
+
         public string NewPost(Post post)
         {
             return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post);
