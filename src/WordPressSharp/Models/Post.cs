@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CookComputing.XmlRpc;
 
 namespace WordPressSharp.Models
@@ -34,7 +35,7 @@ namespace WordPressSharp.Models
         public Term[] Terms { get; set; }
 
         [XmlRpcMember("custom_fields")]
-        public CustomFields[] CustomFields { get; set; }
+        public List<CustomField> CustomFields  { get; set; }
 
         [XmlRpcMember("enclosure")]
         public Enclosure Enclosure { get; set; }

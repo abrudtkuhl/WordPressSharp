@@ -2,7 +2,7 @@
 
 namespace WordPressSharp.Models
 {
-    public class CustomFields
+    public class CustomField
     {
         [XmlRpcMember("id")]
         public string Id { get; set; }

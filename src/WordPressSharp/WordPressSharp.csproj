@@ -45,7 +45,7 @@
     <Compile Include="IWordPressService.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentFilter.cs" />
-    <Compile Include="Models\CustomFields.cs" />
+    <Compile Include="Models\CustomField.cs" />
     <Compile Include="Models\Enclosure.cs" />
     <Compile Include="Models\FilterBase.cs" />
     <Compile Include="Models\MediaItem.cs" />
