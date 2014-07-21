@@ -32,7 +32,7 @@ namespace WordPressSharp.Models
         public string Link { get; set; }
 
         [XmlRpcMember("terms")]
-        public Term[] Terms { get; set; }
+        public List<Term> Terms { get; set; }
 
         [XmlRpcMember("custom_fields")]
         public List<CustomField> CustomFields  { get; set; }
@@ -41,9 +41,16 @@ namespace WordPressSharp.Models
         public Enclosure Enclosure { get; set; }
 
         [XmlRpcMember("media_items")]
-        public MediaItem[] MediaItems { get; set; }
+        public List<MediaItem> MediaItems { get; set; }
 
         [XmlRpcMember("post_parent")]
         public int ParentId { get; set; }
+
+        public Post()
+        {
+            CustomFields = new List<CustomField>();
+            Terms = new List<Term>();
+            MediaItems = new List<MediaItem>();
+        }
     }
 }
