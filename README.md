@@ -3,6 +3,7 @@ A C# client to interact with the WordPress XML-RPC API
 
 #Examples#
 **Create Post**  
+
     var post = new Post {
         PostType = "post",
         Title = "My Awesome Post",
