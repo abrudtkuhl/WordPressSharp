@@ -1,7 +1,9 @@
-﻿using CookComputing.XmlRpc;
+﻿using System.Data.Common;
+using CookComputing.XmlRpc;
 
 namespace WordPressSharp.Models
 {
+    [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class CustomField
     {
         [XmlRpcMember("id")]

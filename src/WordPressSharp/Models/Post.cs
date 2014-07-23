@@ -27,30 +27,23 @@ namespace WordPressSharp.Models
 
         [XmlRpcMember("post_author")]
         public string Author { get; set; }
-        
+
         [XmlRpcMember("link")]
         public string Link { get; set; }
 
         [XmlRpcMember("terms")]
-        public List<Term> Terms { get; set; }
+        public Term[] Terms { get; set; }
 
         [XmlRpcMember("custom_fields")]
-        public List<CustomField> CustomFields  { get; set; }
+        public CustomField[] CustomFields { get; set; }
 
         [XmlRpcMember("enclosure")]
         public Enclosure Enclosure { get; set; }
 
         [XmlRpcMember("media_items")]
-        public List<MediaItem> MediaItems { get; set; }
+        public MediaItem[] MediaItems { get; set; }
 
         [XmlRpcMember("post_parent")]
         public int ParentId { get; set; }
-
-        public Post()
-        {
-            CustomFields = new List<CustomField>();
-            Terms = new List<Term>();
-            MediaItems = new List<MediaItem>();
-        }
     }
 }
