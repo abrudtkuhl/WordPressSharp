@@ -31,7 +31,29 @@
           <h1>
 <a name="wordpresssharp" class="anchor" href="#wordpresssharp"><span class="octicon octicon-link"></span></a>WordPressSharp</h1>
 
-<p>A C# utility to interact with the WordPress XML-RPC API</p>
+<p>A C# client to interact with the WordPress XML-RPC API</p>
+
+<h1>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h1>
+
+<p><strong>Create Post</strong>  </p>
+
+<pre><code>var post = new Post {
+    PostType = "post",
+    Title = "My Awesome Post",
+    Content = "&lt;p&gt;This is the content&lt;/p&gt;",
+    PublishDateTime = DateTime.Now
+}
+using (var client = new WordPresClient(new WordPressSiteConfig {
+    BaseUrl = "http://mywordpress.com",
+    Username = "admin",
+    Password = "password",
+    BlogId = 1
+})) 
+{
+    var id = Convert.ToInt32(client.NewPost(post));
+}
+</code></pre>
 
 <h1>
 <a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h1>
