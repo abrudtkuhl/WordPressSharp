@@ -38,12 +38,12 @@ namespace WordPressSharp
         /// <summary>
         /// Gets a list of posts
         /// </summary>
-        /// <param name="postFilter">A Post Filter</param>
+        /// <param name="filter">A Post Filter</param>
         /// <returns>Post[]</returns>
-        public Post[] GetPosts(PostFilter postFilter)
+        public Post[] GetPosts(PostFilter filter)
         {
             return WordPressService.GetPosts(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
-                WordPressSiteConfig.Password, postFilter);
+                WordPressSiteConfig.Password, filter);
         }
 
         /// <summary>
@@ -55,6 +55,41 @@ namespace WordPressSharp
         {
             return WordPressService.GetMediaItem(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
                 WordPressSiteConfig.Password, attachmentId);
+        }
+
+        /// <summary>
+        /// Gets a media library by Media Filter
+        /// </summary>
+        /// <param name="filter">Media Filter</param>
+        /// <returns>Media Item Array</returns>
+        public MediaItem[] GetMediaItems(MediaFilter filter)
+        {
+            return WordPressService.GetMediaLibrary(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, filter);
+        }
+
+        /// <summary>
+        /// Gets a taxonomy by taxonomy name and term id
+        /// </summary>
+        /// <param name="taxonomy">Taxonomy</param>
+        /// <param name="termId">Term Id</param>
+        /// <returns>Taxonomy</returns>
+        public Taxonomy GetTaxonomy(string taxonomy, int termId)
+        {
+            return WordPressService.GetTaxonomy(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, taxonomy, termId);
+        }
+
+        /// <summary>
+        ///  Gets an array of taxonomies by taxonomy name and Term Filter
+        /// </summary>
+        /// <param name="taxonomy">Taxonomy</param>
+        /// <param name="filter">Term Filter</param>
+        /// <returns>Taxonomy Array</returns>
+        public Taxonomy[] GetTaxonomies(string taxonomy, TermFilter filter)
+        {
+            return WordPressService.GetTaxonomies(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, taxonomy, filter);
         }
 
         /// <summary>
