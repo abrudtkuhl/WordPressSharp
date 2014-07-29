@@ -92,6 +92,48 @@ namespace WordPressSharp
                 WordPressSiteConfig.Password, taxonomy, filter);
         }
 
+        public Term GetTerm(string taxonomy, int termId)
+        {
+            return WordPressService.GetTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, taxonomy, termId);
+        }
+
+        public Term[] GetTerms(string taxonomy, TermFilter filter)
+        {
+            return WordPressService.GetTerms(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, taxonomy, filter);
+        }
+
+        public User GetUser(int userId)
+        {
+            return WordPressService.GetUser(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, userId);
+        }
+
+        public User[] GetUsers(UserFilter filter)
+        {
+            return WordPressService.GetUsers(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, filter);
+        }
+
+        public Comment GetComment(int commentId)
+        {
+            return WordPressService.GetComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, commentId);
+        }
+
+        public Comment[] GetComments(CommentFilter filter)
+        {
+            return WordPressService.GetComments(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, filter);
+        }
+
+        public PostCommentCount GetCommentCount(int postId)
+        {
+            return WordPressService.GetCommentCount(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, postId);
+        }
+
         /// <summary>
         /// Creates a new entry in WordPress determined by Post.PostType to be a "Post", "Page", or custom post type
         /// </summary>
