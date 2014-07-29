@@ -14,7 +14,8 @@ In the meantime, you'll have to clone, build, and add the DLL the ole fashioned 
         Title = "My Awesome Post",
         Content = "<p>This is the content</p>",
         PublishDateTime = DateTime.Now
-    }
+    };
+
     using (var client = new WordPresClient(new WordPressSiteConfig {
         BaseUrl = "http://mywordpress.com",
         Username = "admin",
