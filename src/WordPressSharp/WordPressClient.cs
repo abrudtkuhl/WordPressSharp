@@ -39,11 +39,22 @@ namespace WordPressSharp
         /// Gets a list of posts
         /// </summary>
         /// <param name="postFilter">A Post Filter</param>
-        /// <returns></returns>
+        /// <returns>Post[]</returns>
         public Post[] GetPosts(PostFilter postFilter)
         {
             return WordPressService.GetPosts(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
                 WordPressSiteConfig.Password, postFilter);
+        }
+
+        /// <summary>
+        /// Gets a media item by attachment id
+        /// </summary>
+        /// <param name="attachmentId">Attachment Id</param>
+        /// <returns>Media Item</returns>
+        public MediaItem GetMediaItem(int attachmentId)
+        {
+            return WordPressService.GetMediaItem(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, attachmentId);
         }
 
         /// <summary>
@@ -55,7 +66,7 @@ namespace WordPressSharp
         {
             return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post);
         }
-
+        
         public void Dispose()
         {
             WordPressService = null;

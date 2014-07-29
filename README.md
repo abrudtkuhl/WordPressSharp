@@ -1,6 +1,11 @@
 #WordPressSharp#
 A C# client to interact with the WordPress XML-RPC API
 
+#Install#
+I'm working on a Nuget package once I'm done mapping all the WP XML-RPC endpoints.
+
+In the meantime, you'll have to clone, build, and add the DLL the ole fashioned way
+
 #Examples#
 **Create Post**  
 
