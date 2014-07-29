@@ -50,6 +50,7 @@ namespace WordPressSharp
         [XmlRpcMethod("wp.newPost")]
         string NewPost(int blog_id, string username, string password, Post post);
 
-
+        [XmlRpcMethod("wp.newTerm")]
+        string NewTerm(int blog_id, string username, string password, Term term);
     }
 }

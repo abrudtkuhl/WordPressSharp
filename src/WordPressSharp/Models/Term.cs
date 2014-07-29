@@ -2,6 +2,7 @@
 
 namespace WordPressSharp.Models
 {
+    [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class Term
     {
         [XmlRpcMember("term_id")]

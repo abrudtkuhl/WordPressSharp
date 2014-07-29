@@ -145,6 +145,12 @@ namespace WordPressSharp
         {
             return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post);
         }
+
+        public string NewTerm(Term term)
+        {
+            return WordPressService.NewTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, term);
+        }
         
         public void Dispose()
         {

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using CookComputing.XmlRpc;
 
 namespace WordPressSharp.Models
