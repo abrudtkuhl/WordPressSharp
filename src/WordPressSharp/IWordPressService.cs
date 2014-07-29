@@ -1,4 +1,5 @@
-﻿using CookComputing.XmlRpc;
+﻿using System;
+using CookComputing.XmlRpc;
 using WordPressSharp.Models;
 
 namespace WordPressSharp
@@ -10,7 +11,7 @@ namespace WordPressSharp
         Post GetPost(int blog_id, string username, string password, int post_id);
 
         [XmlRpcMethod("wp.getPosts")]
-        Post[] GetPosts(int blog_id, string username, string passwrod, PostFilter postFilter);
+        Post[] GetPosts(int blog_id, string username, string password, PostFilter postFilter);
 
         [XmlRpcMethod("wp.getMediaItem")]
         MediaItem GetMediaItem(int blog_id, string username, string password, int attachment_id);
@@ -49,6 +50,6 @@ namespace WordPressSharp
         [XmlRpcMethod("wp.newPost")]
         string NewPost(int blog_id, string username, string password, Post post);
 
-        
+
     }
 }
