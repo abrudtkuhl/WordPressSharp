@@ -26,6 +26,20 @@ In the meantime, you'll have to clone, build, and add the DLL the ole fashioned 
         var id = Convert.ToInt32(client.NewPost(post));
     }
 
+##Create Post Tag##
+
+    var config = new WordPressSiteConfig { ... }
+
+    using (var client = new WordPressClient(config))
+    {
+        var termId = client.NewTerm(new Term
+        {
+            Name = "term test",
+            Description = "term description",
+            Slug = "term_test",
+            Taxonomy = "post_tag"
+        });
+    }
 
 #Dependencies#
 [XML-RPC.net](http://xml-rpc.net/)
