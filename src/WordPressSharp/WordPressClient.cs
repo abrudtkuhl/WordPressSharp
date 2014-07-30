@@ -151,6 +151,12 @@ namespace WordPressSharp
             return WordPressService.NewTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
                 WordPressSiteConfig.Password, term);
         }
+
+        public bool DeleteTerm(int termId, string taxonomy)
+        {
+            return WordPressService.DeleteTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, taxonomy, termId);
+        }
         
         public void Dispose()
         {
