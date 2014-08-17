@@ -19,5 +19,8 @@ namespace WordPressSharp.Models
 
         [XmlRpcMember("order")]
         public string Order { get; set; }
+
+        [XmlRpcMember("number")]
+        public int Number { get; set; }
     }
 }
