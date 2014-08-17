@@ -58,6 +58,7 @@
     <Compile Include="Models\PostFilter.cs" />
     <Compile Include="Models\PostThumnailImageMeta.cs" />
     <Compile Include="Models\PostType.cs" />
+    <Compile Include="Models\Post_Put.cs" />
     <Compile Include="Models\Taxonomy.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Models\TermFilter.cs" />
