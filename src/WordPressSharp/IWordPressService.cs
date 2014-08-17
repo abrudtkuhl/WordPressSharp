@@ -59,5 +59,8 @@ namespace WordPressSharp
         // DELETE
         [XmlRpcMethod("wp.deleteTerm")]
         bool DeleteTerm(int blog_id, string username, string password, string taxonomy, int term_id);
+
+        [XmlRpcMethod("wp.deletePost")]
+        bool DeletePost(int blog_id, string username, string password, int post_id);
     }
 }
