@@ -43,6 +43,6 @@ namespace WordPressSharp.Models
         public MediaItem[] MediaItems { get; set; }
 
         [XmlRpcMember("post_parent")]
-        public int ParentId { get; set; }
+        public string ParentId { get; set; }
     }
 }
