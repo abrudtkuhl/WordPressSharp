@@ -183,6 +183,12 @@ namespace WordPressSharp
             return WordPressService.EditPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, int.Parse(post_put.Id), post_put);
         }
 
+        public bool DeletePost(int postId)
+        {
+            return WordPressService.DeletePost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, postId);
+        }
+
         public string NewTerm(Term term)
         {
             return WordPressService.NewTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
