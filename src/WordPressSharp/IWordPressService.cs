@@ -48,7 +48,10 @@ namespace WordPressSharp
 
         // PUT
         [XmlRpcMethod("wp.newPost")]
-        string NewPost(int blog_id, string username, string password, Post post);
+        string NewPost(int blog_id, string username, string password, Post_Put post);
+        [XmlRpcMethod("wp.editPost")]
+        bool EditPost(int blog_id, string username, string password, int post_id, Post_Put post);
+
 
         [XmlRpcMethod("wp.newTerm")]
         string NewTerm(int blog_id, string username, string password, Term term);
@@ -56,5 +59,8 @@ namespace WordPressSharp
         // DELETE
         [XmlRpcMethod("wp.deleteTerm")]
         bool DeleteTerm(int blog_id, string username, string password, string taxonomy, int term_id);
+
+        [XmlRpcMethod("wp.deletePost")]
+        bool DeletePost(int blog_id, string username, string password, int post_id);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using CookComputing.XmlRpc;
 using WordPressSharp.Models;
 
@@ -21,7 +22,7 @@ namespace WordPressSharp
         {
             WordPressSiteConfig = siteConfig;
 
-            WordPressService = (IWordPressService) XmlRpcProxyGen.Create(typeof (IWordPressService));
+            WordPressService = (IWordPressService)XmlRpcProxyGen.Create(typeof(IWordPressService));
             WordPressService.Url = WordPressSiteConfig.FullUrl;
         }
 
@@ -143,7 +144,49 @@ namespace WordPressSharp
         /// <returns></returns>
         public string NewPost(Post post)
         {
-            return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post);
+            var post_put = new Post_Put();
+            CopyPropertyValues(post, post_put);
+
+            var terms = new XmlRpcStruct();
+            var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
+            foreach (var grp in termTaxes)
+            {
+                var termIds = grp.Select(g => g.TermTaxonomyId).ToArray();
+                terms.Add(grp.Key, termIds);
+            }
+
+
+            post_put.Terms = terms;
+
+
+            return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post_put);
+        }
+
+
+        public bool EditPost(Post post)
+        {
+            var post_put = new Post_Put();
+            CopyPropertyValues(post, post_put);
+
+            var terms = new XmlRpcStruct();
+            var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
+            foreach (var grp in termTaxes)
+            {
+                var termIds = grp.Select(g => g.TermTaxonomyId).ToArray();
+                terms.Add(grp.Key, termIds);
+            }
+
+            
+            post_put.Terms = terms;
+
+
+            return WordPressService.EditPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, int.Parse(post_put.Id), post_put);
+        }
+
+        public bool DeletePost(int postId)
+        {
+            return WordPressService.DeletePost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, postId);
         }
 
         public string NewTerm(Term term)
@@ -157,10 +200,30 @@ namespace WordPressSharp
             return WordPressService.DeleteTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
                 WordPressSiteConfig.Password, taxonomy, termId);
         }
-        
+
         public void Dispose()
         {
             WordPressService = null;
+        }
+
+        public static void CopyPropertyValues(object source, object destination)
+        {
+            var destProperties = destination.GetType().GetProperties();
+
+            foreach (var sourceProperty in source.GetType().GetProperties())
+            {
+                foreach (var destProperty in destProperties)
+                {
+                    if (destProperty.Name == sourceProperty.Name &&
+                destProperty.PropertyType.IsAssignableFrom(sourceProperty.PropertyType))
+                    {
+                        destProperty.SetValue(destination, sourceProperty.GetValue(
+                            source, new object[] { }), new object[] { });
+
+                        break;
+                    }
+                }
+            }
         }
     }
 }
