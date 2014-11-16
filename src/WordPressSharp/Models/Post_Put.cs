@@ -31,6 +31,9 @@ namespace WordPressSharp.Models
         [XmlRpcMember("post_author")]
         public string Author { get; set; }
 
+        [XmlRpcMember("post_name")]
+        public string Name { get; set; }
+
         [XmlRpcMember("link")]
         public string Link { get; set; }
 
