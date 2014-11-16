@@ -16,7 +16,7 @@ In the meantime, you'll have to clone, build, and add the DLL the ole fashioned 
         PublishDateTime = DateTime.Now
     };
 
-    using (var client = new WordPresClient(new WordPressSiteConfig {
+    using (var client = new WordPressClient(new WordPressSiteConfig {
         BaseUrl = "http://mywordpress.com",
         Username = "admin",
         Password = "password",
