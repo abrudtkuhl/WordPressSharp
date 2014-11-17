@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CookComputing.XmlRpcV2">
-      <HintPath>packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+      <HintPath>packages\xmlrpcnet.3.0.0.266\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,6 +53,8 @@
     <Compile Include="Models\MediaItemMetadata.cs" />
     <Compile Include="Models\MediaItemSizes.cs" />
     <Compile Include="Models\MediamItemSize.cs" />
+    <Compile Include="Models\Option.cs" />
+    <Compile Include="Models\Option_Get.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostCommentCount.cs" />
     <Compile Include="Models\PostFilter.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using CookComputing.XmlRpc;
 using WordPressSharp.Models;
@@ -200,6 +202,69 @@ namespace WordPressSharp
             return WordPressService.DeleteTerm(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
                 WordPressSiteConfig.Password, taxonomy, termId);
         }
+
+
+        Dictionary<string, Option_Get> ConvertOptionReturnValue(XmlRpcStruct options)
+        {
+            var result = new Dictionary<string, Option_Get>();
+
+            foreach (DictionaryEntry option in options)
+            {
+                XmlRpcStruct optionStruct = (XmlRpcStruct)option.Value;
+
+                var optionItem = new Option_Get();
+                optionItem.Description = (string)optionStruct["desc"];
+
+                var xmlRpcValue = optionStruct["value"];
+                if (xmlRpcValue is string)
+                {
+                    optionItem.Value = (string)xmlRpcValue;
+                }
+                else
+                {
+                    optionItem.ValueObject = xmlRpcValue;
+                }
+
+                optionItem.ReadOnly = (bool)optionStruct["readonly"];
+
+                result[(string)option.Key] = optionItem;
+            }
+
+            return result;
+        }
+
+        public Dictionary<string,Option_Get> GetOptions(IEnumerable<string> names)
+        {
+            XmlRpcStruct options;
+            if (names == null)
+            {
+                options = WordPressService.GetAllOptions(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                    WordPressSiteConfig.Password);
+            }
+            else
+            {
+                options = WordPressService.GetOptions(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                    WordPressSiteConfig.Password, names.ToArray());
+            }
+
+            return ConvertOptionReturnValue(options);
+        }
+
+        public Dictionary<string, Option_Get> SetOptions(IEnumerable<Option> options)
+        {
+            XmlRpcStruct xmlRpcOption= new XmlRpcStruct();
+
+            foreach (var option in options)
+            {
+                xmlRpcOption.Add( option.Name, option.Value );
+            }
+
+            var retOptions= WordPressService.SetOptios(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password, xmlRpcOption);
+
+            return ConvertOptionReturnValue(retOptions);
+        }
+
 
         public void Dispose()
         {
