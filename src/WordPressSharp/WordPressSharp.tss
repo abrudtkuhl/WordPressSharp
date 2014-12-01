@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\dev\Documents\Visual Studio 2013\Projects\GitHub\WordPressSharp\src\WordPressSharp\WordPressClient.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\dev\Documents\Visual Studio 2013\Projects\GitHub\WordPressSharp\src\WordPressSharp\IWordPressService.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\dev\Documents\Visual Studio 2013\Projects\GitHub\WordPressSharp\src\WordPressSharp\Models\Option.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\dev\Documents\Visual Studio 2013\Projects\GitHub\WordPressSharp\src\WordPressSharp\Models\Option_Get.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\Users\dev\Documents\Visual Studio 2013\Projects\GitHub\WordPressSharp\src\WordPressSharp\Models\Post_Put.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

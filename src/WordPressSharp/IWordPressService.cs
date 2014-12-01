@@ -46,6 +46,13 @@ namespace WordPressSharp
         [XmlRpcMethod("wp.getCommentCount")]
         PostCommentCount GetCommentCount(int blog_id, string username, string password, int post_id);
 
+        [XmlRpcMethod("wp.getOptions")]
+        XmlRpcStruct GetOptions(int blog_id, string username, string password, string[] options);
+
+        [XmlRpcMethod("wp.getOptions")]
+        XmlRpcStruct GetAllOptions(int blog_id, string username, string password);
+        
+
         // PUT
         [XmlRpcMethod("wp.newPost")]
         string NewPost(int blog_id, string username, string password, Post_Put post);
@@ -55,6 +62,12 @@ namespace WordPressSharp
 
         [XmlRpcMethod("wp.newTerm")]
         string NewTerm(int blog_id, string username, string password, Term term);
+
+
+        [XmlRpcMethod("wp.setOptions")]
+        XmlRpcStruct SetOptios(int blog_id, string username, string password, XmlRpcStruct options);
+
+
 
         // DELETE
         [XmlRpcMethod("wp.deleteTerm")]
