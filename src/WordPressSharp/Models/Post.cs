@@ -44,5 +44,7 @@ namespace WordPressSharp.Models
 
         [XmlRpcMember("post_parent")]
         public string ParentId { get; set; }
+        [XmlRpcMember("post_thumbnail")]
+        public string FeatureImageId { get; set; }
     }
 }

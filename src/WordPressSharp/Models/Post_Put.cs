@@ -50,6 +50,9 @@ namespace WordPressSharp.Models
         [XmlRpcMember("terms")]
         public XmlRpcStruct Terms { get; set; }
 
+        [XmlRpcMember("post_thumbnail")]
+        public string FeatureImageId { get; set; }
+
 
         /*[XmlRpcMember("terms_names")]
         public XmlRpcStruct TermsNames { get; set; }*/
