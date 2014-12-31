@@ -144,7 +144,7 @@ namespace WordPressSharp
         /// </summary>
         /// <param name="post">The post to create</param>
         /// <returns></returns>
-        public string NewPost(Post post)
+        public string NewPost(Post post)    
         {
             var post_put = new Post_Put();
             CopyPropertyValues(post, post_put);
@@ -153,7 +153,7 @@ namespace WordPressSharp
             var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
             foreach (var grp in termTaxes)
             {
-                var termIds = grp.Select(g => g.TermTaxonomyId).ToArray();
+                var termIds = grp.Select(g => g.Id).ToArray();
                 terms.Add(grp.Key, termIds);
             }
 
@@ -174,7 +174,7 @@ namespace WordPressSharp
             var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
             foreach (var grp in termTaxes)
             {
-                var termIds = grp.Select(g => g.TermTaxonomyId).ToArray();
+                var termIds = grp.Select(g => g.Id).ToArray();
                 terms.Add(grp.Key, termIds);
             }
 
