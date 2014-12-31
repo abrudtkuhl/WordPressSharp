@@ -144,7 +144,7 @@ namespace WordPressSharp
         /// </summary>
         /// <param name="post">The post to create</param>
         /// <returns></returns>
-        public string NewPost(Post post)
+        public string NewPost(Post post)    
         {
             var post_put = new Post_Put();
             CopyPropertyValues(post, post_put);
