@@ -53,6 +53,7 @@
     <Compile Include="Models\MediaItemMetadata.cs" />
     <Compile Include="Models\MediaItemSizes.cs" />
     <Compile Include="Models\MediamItemSize.cs" />
+    <Compile Include="Models\MediaUpload.cs" />
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\Option_Get.cs" />
     <Compile Include="Models\Post.cs" />

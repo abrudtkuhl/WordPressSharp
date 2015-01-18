@@ -61,6 +61,16 @@ namespace WordPressSharp
         }
 
         /// <summary>
+        /// Upload a file
+        /// </summary>
+        /// <param name="upload">Upload data</param>
+        /// <returns></returns>
+        public UploadResult UploadFile(Data upload)
+        {
+            return WordPressService.UploadFile(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, upload);
+        }
+
+        /// <summary>
         /// Gets a media library by Media Filter
         /// </summary>
         /// <param name="filter">Media Filter</param>
