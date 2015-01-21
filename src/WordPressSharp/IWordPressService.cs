@@ -19,6 +19,9 @@ namespace WordPressSharp
         [XmlRpcMethod("wp.getMediaLibrary")]
         MediaItem[] GetMediaLibrary(int blog_id, string username, string password, MediaFilter filter);
 
+        [XmlRpcMethod("wp.uploadFile")]
+        UploadResult UploadFile(int blog_id, string username, string password, Data upload);
+
         [XmlRpcMethod("wp.getTaxonomy")]
         Taxonomy GetTaxonomy(int blog_id, string username, string password, string taxonomy, int term_id);
 
