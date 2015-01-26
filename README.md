@@ -41,6 +41,9 @@ In the meantime, you'll have to clone, build, and add the DLL the ole fashioned 
         });
     }
 
+#Tutorials#
+[How to publish a post or page](http://brudtkuhl.com/using-wordpresssharp-publish-post/)
+
 #Dependencies#
 [XML-RPC.net](http://xml-rpc.net/)
 
