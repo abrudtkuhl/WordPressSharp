@@ -3,7 +3,7 @@
 namespace WordPressSharp.Models
 {
     [XmlRpcMissingMapping(MappingAction.Ignore)]
-    public class MediamItemSize
+    public class MediaItemSize
     {
         [XmlRpcMember("file")]
         public string File { get; set; }
