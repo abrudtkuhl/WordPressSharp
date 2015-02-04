@@ -6,21 +6,21 @@ namespace WordPressSharp.Models
     public class MediaItemSizes
     {
         [XmlRpcMember("medium")]
-        public MediaItemSizes Medium { get; set; }
+        public MediaItemSize Medium { get; set; }
 
         [XmlRpcMember("large")]
-        public MediaItemSizes Large { get; set; }
+        public MediaItemSize Large { get; set; }
 
         [XmlRpcMember("thumbnail")]
-        public MediaItemSizes Thumbnail { get; set; }
+        public MediaItemSize Thumbnail { get; set; }
 
-        [XmlRpcMember("post_thumbnail")]
-        public MediaItemSizes PostThumbnail { get; set; }
+        [XmlRpcMember("post-thumbnail")]
+        public MediaItemSize PostThumbnail { get; set; }
 
         [XmlRpcMember("listing")]
-        public MediaItemSizes Listing { get; set; }
+        public MediaItemSize Listing { get; set; }
 
         [XmlRpcMember("listing_small")]
-        public MediaItemSizes ListingSmall { get; set; }
+        public MediaItemSize ListingSmall { get; set; }
     }
 }
