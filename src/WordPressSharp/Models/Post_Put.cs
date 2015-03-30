@@ -59,5 +59,8 @@ namespace WordPressSharp.Models
 
         /*[XmlRpcMember("terms_names")]
         public XmlRpcStruct TermsNames { get; set; }*/
+        
+        [XmlRpcMember("post_excerpt")]
+        public string Exerpt { get; set; }
     }
 }
