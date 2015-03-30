@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CookComputing.XmlRpc;
+using System;
+using System.Diagnostics;
 
 namespace WordPressSharp.Models
 {
+    [DebuggerDisplay("{GetType().Name,nq}: Id={Id, nq}, Title={Title}")]
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class Post_Put
     {
@@ -37,7 +35,6 @@ namespace WordPressSharp.Models
         [XmlRpcMember("link")]
         public string Link { get; set; }
 
-
         [XmlRpcMember("custom_fields")]
         public CustomField[] CustomFields { get; set; }
 
@@ -55,7 +52,6 @@ namespace WordPressSharp.Models
 
         [XmlRpcMember("post_thumbnail")]
         public string FeaturedImageId { get; set; }
-
 
         /*[XmlRpcMember("terms_names")]
         public XmlRpcStruct TermsNames { get; set; }*/
