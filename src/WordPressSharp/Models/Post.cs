@@ -1,8 +1,10 @@
 ﻿using System;
 using CookComputing.XmlRpc;
+using System.Diagnostics;
 
 namespace WordPressSharp.Models
 {
+    [DebuggerDisplay("{GetType().Name,nq}: Id={Id, nq}, Title={Title}")]
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class Post
     {
@@ -48,8 +50,7 @@ namespace WordPressSharp.Models
         [XmlRpcMember("post_parent")]
         public string ParentId { get; set; }
         
-        [XmlRpcMember("post_thumbnail")]
-        public MediaItem[] FeaturedImageId { get; set; }
+		public string FeaturedImageId { get; set; }
         
         [XmlRpcMember("post_excerpt")]
         public string Exerpt { get; set; }
