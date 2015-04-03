@@ -16,10 +16,18 @@ namespace WordPressSharp
         /// </summary>
         public IWordPressService WordPressService { get; internal set; }
 
-        /// <summary>
-        /// Initialize a new instance of the WordPress Client class
-        /// </summary>
-        /// <param name="siteConfig">WordPress Site Config</param>
+		/// <summary>
+		/// Initializes a new instance of the <see cref="WordPressClient"/> class. It will use the default configuration based on app settings.
+		/// </summary>
+		public WordPressClient()
+			: this(WordPressSiteConfig.Default)
+		{
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="WordPressClient" /> class.
+		/// </summary>
+		/// <param name="siteConfig">The site configuration.</param>
         public WordPressClient(WordPressSiteConfig siteConfig)
         {
             WordPressSiteConfig = siteConfig;

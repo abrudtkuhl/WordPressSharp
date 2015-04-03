@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CookComputing.XmlRpc;
+﻿using CookComputing.XmlRpc;
+using System;
+using System.IO;
+using System.Net;
 
 namespace WordPressSharp.Models
 {
@@ -38,25 +36,115 @@ namespace WordPressSharp.Models
 		#endregion
 	}
 
-    public class Data {
-        [XmlRpcMember("name")]
-        public string Name { get; set; }
-        [XmlRpcMember("type")]
-        public string Type { get; set; }
-        /// <summary>
-        /// Pass an array of bytes IE File.ReadAllBytes(filepath)
-        /// </summary>
-        [XmlRpcMember("bits")]       
-        public byte[] Bits { get; set; }
-        [XmlRpcMember("overwrite")]
-        public bool Overwrite { get; set; }
-        [XmlRpcMember("post_id")]
-        public int post_id { get; set; }
-    }
+	/// <summary>
+	/// Data structure that is used for uploading. Data.CreateFromFilePath or Data.CreateFromUrl can be used to create a structure. 
+	/// </summary>
+	public class Data
+	{
+		[XmlRpcMember("name")]
+		public string Name { get; set; }
+
+		/// <summary>
+		/// Gets or sets the MIME type.
+		/// </summary>
+		/// <value>
+		/// The type.
+		/// </value>
+		[XmlRpcMember("type")]
+		public string Type { get; set; }
+
+		/// <summary>
+		/// The bits representing the upload. Pass an array of bytes IE File.ReadAllBytes(filepath)
+		/// </summary>
+		[XmlRpcMember("bits")]
+		public byte[] Bits { get; set; }
+
+		[XmlRpcMember("overwrite")]
+		public bool Overwrite { get; set; }
+
+		/// <summary>
+		/// Creates a data structure from the file path.
+		/// </summary>
+		/// <param name="path">The path.</param>
+		/// <param name="mimeType">Type of the MIME.</param>
+		/// <returns>
+		/// The data structure.
+		/// </returns>
+		/// <exception cref="System.ArgumentException">Path is a required parameter.</exception>
+		public static Data CreateFromFilePath(string path, string mimeType)
+		{
+			if (path == null)
+			{
+				throw new ArgumentException("Path is a required parameter.", "path");
+			}
+
+			Data data = new Data
+			{
+				Type = mimeType,
+				Bits = File.ReadAllBytes(path)
+			};
+
+			return data;
+		}
+
+		/// <summary>
+		/// Creates the data structure from the URL.
+		/// </summary>
+		/// <param name="url">The URL.</param>
+		/// <param name="mimeType">Type of the MIME. If <c>null</c> the ContentType header of the url will be used.</param>
+		/// <returns>
+		/// The data structure.
+		/// </returns>
+		/// <exception cref="System.ArgumentException">Url is a required parameter.</exception>
+		public static Data CreateFromUrl(string url, string mimeType = null)
+		{
+			if (url == null)
+			{
+				throw new ArgumentException("Url is a required parameter.", "url");
+			}
+
+			using (WebClient wc = new WebClient())
+			{
+				Data data = new Data();
+				data.Bits = wc.DownloadData(url);
+
+				if (mimeType != null)
+				{
+					data.Type = mimeType;
+				}
+				else
+				{
+					data.Type = wc.ResponseHeaders["content-type"];
+				}
+
+				return data;
+			}
+		}
+
+		#region obsoletes
+
+		[Obsolete("Not used anymore.")]
+		public int post_id { get; set; }
+
+		#endregion
+
+	}
 
     [XmlRpcMissingMapping(MappingAction.Ignore)]
     public class MediaUpload
     {
-        public Data data { get; set; }
-    }
+		[XmlRpcMember("data")]
+		public Data Data { get; set; }
+
+		#region obsoletes
+
+		[Obsolete("Please use Data.")]
+		public Data data
+		{
+			get { return Data; }
+			set { Data = value; }
+		}
+
+		#endregion
+	}
 }
