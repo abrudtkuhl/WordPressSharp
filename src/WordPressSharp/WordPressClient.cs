@@ -175,9 +175,12 @@ namespace WordPressSharp
                 terms.Add(grp.Key, termIds);
             }
 
-
             post_put.Terms = terms;
 
+			if (post_put.PostType == "post" && String.IsNullOrEmpty(post_put.CommentStatus))
+			{
+				post_put.CommentStatus = "open";
+			}
 
             return WordPressService.NewPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, post_put);
         }
