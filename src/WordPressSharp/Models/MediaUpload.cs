@@ -5,6 +5,7 @@ using System.Net;
 
 namespace WordPressSharp.Models
 {
+	[XmlRpcMissingMapping(MappingAction.Ignore)]
 	public class UploadResult
 	{
 		[XmlRpcMember("id")]
@@ -103,6 +104,8 @@ namespace WordPressSharp.Models
 				throw new ArgumentException("Url is a required parameter.", "url");
 			}
 
+			var bytes = new byte[0];
+
 			using (WebClient wc = new WebClient())
 			{
 				Data data = new Data();
@@ -130,9 +133,9 @@ namespace WordPressSharp.Models
 
 	}
 
-    [XmlRpcMissingMapping(MappingAction.Ignore)]
-    public class MediaUpload
-    {
+	[XmlRpcMissingMapping(MappingAction.Ignore)]
+	public class MediaUpload
+	{
 		[XmlRpcMember("data")]
 		public Data Data { get; set; }
 
