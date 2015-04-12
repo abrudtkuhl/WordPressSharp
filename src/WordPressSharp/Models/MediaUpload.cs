@@ -42,6 +42,12 @@ namespace WordPressSharp.Models
 	/// </summary>
 	public class Data
 	{
+		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>
+		/// The name.
+		/// </value>
 		[XmlRpcMember("name")]
 		public string Name { get; set; }
 
@@ -60,6 +66,12 @@ namespace WordPressSharp.Models
 		[XmlRpcMember("bits")]
 		public byte[] Bits { get; set; }
 
+		/// <summary>
+		/// Gets or sets a value indicating whether this to overwrite a media item with the same name.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if the media item should be overwritten; otherwise, <c>false</c>.
+		/// </value>
 		[XmlRpcMember("overwrite")]
 		public bool Overwrite { get; set; }
 
@@ -82,6 +94,7 @@ namespace WordPressSharp.Models
 			Data data = new Data
 			{
 				Type = mimeType,
+				Name = Path.GetFileName(path),
 				Bits = File.ReadAllBytes(path)
 			};
 
@@ -110,6 +123,7 @@ namespace WordPressSharp.Models
 			{
 				Data data = new Data();
 				data.Bits = wc.DownloadData(url);
+				data.Name = Path.GetFileName(url);
 
 				if (mimeType != null)
 				{
