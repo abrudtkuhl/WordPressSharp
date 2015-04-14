@@ -6,6 +6,22 @@ I'm working on a Nuget package once I'm done mapping all the WP XML-RPC endpoint
 
 In the meantime, you'll have to clone, build, and add the DLL the ole fashioned way
 
+#Config#
+Use your config file to for configuration settings:
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<appSettings>
+		<add key="WordPressUsername" value="" />
+		<add key="WordPressPassword" value="" />
+		<add key="WordPressBaseUrl" value="" />
+		<add key="WordPressBlogId" value="" />
+	</appSettings>
+</configuration>
+```
+As an alternative you can use the `WordPressSiteConfig` class to store configuration settings.
+
+
 #Examples#
 **Create Post**  
 
@@ -16,21 +32,14 @@ In the meantime, you'll have to clone, build, and add the DLL the ole fashioned 
         PublishDateTime = DateTime.Now
     };
 
-    using (var client = new WordPressClient(new WordPressSiteConfig {
-        BaseUrl = "http://mywordpress.com",
-        Username = "admin",
-        Password = "password",
-        BlogId = 1
-    })) 
+    using (var client = new WordPressClient()) 
     {
         var id = Convert.ToInt32(client.NewPost(post));
     }
 
 ##Create Post Tag##
 
-    var config = new WordPressSiteConfig { ... }
-
-    using (var client = new WordPressClient(config))
+    using (var client = new WordPressClient())
     {
         var termId = client.NewTerm(new Term
         {

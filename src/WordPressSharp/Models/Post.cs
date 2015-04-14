@@ -54,5 +54,8 @@ namespace WordPressSharp.Models
         
         [XmlRpcMember("post_excerpt")]
         public string Exerpt { get; set; }
+
+		[XmlRpcMember("comment_status")]
+		public string CommentStatus { get; set; }
     }
 }

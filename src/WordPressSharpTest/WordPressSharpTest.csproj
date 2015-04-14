@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataTest.cs" />
     <Compile Include="WordPressClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
