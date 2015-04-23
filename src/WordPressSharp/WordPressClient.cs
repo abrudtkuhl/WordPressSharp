@@ -156,6 +156,12 @@ namespace WordPressSharp
         }
 
 
+        public Category[] GetCategories()
+        {
+            return WordPressService.GetAllCategories(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password);
+        }
+
 
         /// <summary>
         /// Creates a new entry in WordPress determined by Post.PostType to be a "Post", "Page", or custom post type

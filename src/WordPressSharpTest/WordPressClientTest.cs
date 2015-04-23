@@ -63,5 +63,14 @@ namespace WordPressSharpTest
                 client.NewPost(post);
             }
         }
+
+        [TestMethod]
+        public void GetCategories()
+        {
+            using (var client = CreateDefaultClient())
+            {
+                var categories = client.GetCategories();
+            }
+        }
 	}
 }

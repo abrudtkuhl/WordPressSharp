@@ -54,6 +54,9 @@ namespace WordPressSharp
 
         [XmlRpcMethod("wp.getOptions")]
         XmlRpcStruct GetAllOptions(int blog_id, string username, string password);
+
+        [XmlRpcMethod("wp.getCategories")]
+        Category[] GetAllCategories(int blog_id, string username, string password);
         
 
         // PUT
