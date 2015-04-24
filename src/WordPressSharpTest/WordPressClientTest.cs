@@ -42,5 +42,26 @@ namespace WordPressSharpTest
 				var posts = client.GetPosts(new PostFilter());
 			}
 		}
+
+        /// <summary>
+        /// Test Create Post
+        /// </summary>
+        [TestMethod]
+        public void CreatePost()
+        {
+            using (var client = CreateDefaultClient())
+            {
+                var post = new Post
+                {
+                    PostType = "post", // "post" or "page"
+                    Title = "Test Title", 
+                    Content = "Test", 
+                    PublishDateTime = DateTime.Now,
+                    Status = "publish" // "draft" or "publish"
+                };
+
+                client.NewPost(post);
+            }
+        }
 	}
 }

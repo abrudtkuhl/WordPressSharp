@@ -168,16 +168,19 @@ namespace WordPressSharp
             CopyPropertyValues(post, post_put);
 
             var terms = new XmlRpcStruct();
-            var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
-            foreach (var grp in termTaxes)
+
+            if (post.Terms != null)
             {
-                var termIds = grp.Select(g => g.Id).ToArray();
-                terms.Add(grp.Key, termIds);
+                var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
+                foreach (var grp in termTaxes)
+                {
+                    var termIds = grp.Select(g => g.Id).ToArray();
+                    terms.Add(grp.Key, termIds);
+                }
+
+                post_put.Terms = terms;
             }
-
-            post_put.Terms = terms;
-
-			if (post_put.PostType == "post" && String.IsNullOrEmpty(post_put.CommentStatus))
+            if (post_put.PostType == "post" && String.IsNullOrEmpty(post_put.CommentStatus))
 			{
 				post_put.CommentStatus = "open";
 			}
