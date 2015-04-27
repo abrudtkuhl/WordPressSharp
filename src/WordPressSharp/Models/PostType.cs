@@ -2,6 +2,7 @@
 
 namespace WordPressSharp.Models
 {
+	/*
     public class PostType
     {
         [XmlRpcMember("name")]
@@ -39,4 +40,5 @@ namespace WordPressSharp.Models
 
 
     }
+	 */
 }

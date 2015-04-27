@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Order.cs" />
+    <Compile Include="Constants\PostOrderBy.cs" />
+    <Compile Include="Constants\PostStatus.cs" />
+    <Compile Include="Constants\TaxonomyType.cs" />
+    <Compile Include="Constants\PostType.cs" />
     <Compile Include="IWordPressService.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\CommentFilter.cs" />
