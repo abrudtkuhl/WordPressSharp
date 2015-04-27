@@ -60,8 +60,50 @@ namespace WordPressSharpTest
                     Status = "publish" // "draft" or "publish"
                 };
 
-                client.NewPost(post);
+                var id = client.NewPost(post);
+
+				Assert.IsFalse(String.IsNullOrEmpty(id));
+
+				client.DeletePost(Convert.ToInt32(id));
             }
         }
+
+		/// <summary>
+		/// Creates a post and a comment.
+		/// </summary>
+		[TestMethod]
+		public void CreatePostAndComment()
+		{
+			using (var client = CreateDefaultClient())
+			{
+				var post = new Post
+				{
+					PostType = "post", // "post" or "page"
+					Title = "Test CreatePostAndComment",
+					Content = "Testing CreatePostAndComment",
+					Status = "draft" // "draft" or "publish"
+				};
+
+				var postId = Convert.ToInt32(client.NewPost(post));
+				
+				//test id
+				Assert.IsTrue(postId > 0);
+
+				var comment = new Comment
+				{
+					PostId = postId.ToString(),
+					Author = "WordPressSharpTestPilot",
+					Content = "Hello world!"
+				};
+
+				var commentId = client.NewComment(comment);
+
+				//test comment id
+				Assert.IsTrue(commentId > 0);
+
+				//clean up
+				client.DeletePost(Convert.ToInt32(postId));
+			}
+		}
 	}
 }

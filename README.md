@@ -1,12 +1,12 @@
 #WordPressSharp#
 A C# client to interact with the WordPress XML-RPC API
 
-#Install#
+##Install##
 I'm working on a Nuget package once I'm done mapping all the WP XML-RPC endpoints.
 
 In the meantime, you'll have to clone, build, and add the DLL the ole fashioned way
 
-#Config#
+##Config##
 Use your config file to for configuration settings:
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -21,19 +21,20 @@ Use your config file to for configuration settings:
 ```
 As an alternative you can use the `WordPressSiteConfig` class to store configuration settings.
 
-
 #Examples#
-**Create Post**  
 
-    var post = new Post {
-        PostType = "post",
-        Title = "My Awesome Post",
-        Content = "<p>This is the content</p>",
-        PublishDateTime = DateTime.Now
-    };
+##Create Post##
 
     using (var client = new WordPressClient()) 
     {
+        var post = new Post
+        {
+            PostType = "post",
+            Title = "My Awesome Post",
+            Content = "<p>This is the content</p>",
+            PublishDateTime = DateTime.Now
+        };
+    
         var id = Convert.ToInt32(client.NewPost(post));
     }
 
@@ -48,6 +49,26 @@ As an alternative you can use the `WordPressSiteConfig` class to store configura
             Slug = "term_test",
             Taxonomy = "post_tag"
         });
+    }
+
+##Add feature image##
+You can add a feature image by using the `Data.CreateFromUrl` or `Data.CreateFromFilePath`:
+
+    string url = "https://unsplash.imgix.net/photo-1423683249427-8ca22bd873e0";
+    using (var client = new WordPressClient()) 
+    {
+        var post = new Post
+        {
+            PostType = "post",
+            Title = "New photo from Unsplash",
+            Content = "<p>Check out this new picture from Unsplash.</p>",
+            PublishDateTime = DateTime.Now
+        };
+        
+        var featureImage = Data.CreateFromUrl(url);
+        post.FeaturedImageId = client.UploadFile(featureImage).Id;
+    
+        var id = Convert.ToInt32(client.NewPost(post));
     }
 
 #Tutorials#

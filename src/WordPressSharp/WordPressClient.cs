@@ -155,7 +155,18 @@ namespace WordPressSharp
                 WordPressSiteConfig.Password, postId);
         }
 
+		/// <summary>
+		/// Creates a new comment.
+		/// </summary>
+		/// <param name="comment">The comment.</param>
+		/// <returns>The id of the newly created comment.</returns>
+		public int NewComment(Comment comment)
+		{
+			var comment_put = new Comment_Put();
+			CopyPropertyValues(comment, comment_put);
 
+			return WordPressService.NewComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, Convert.ToInt32(comment.PostId), comment_put);
+		}
 
         /// <summary>
         /// Creates a new entry in WordPress determined by Post.PostType to be a "Post", "Page", or custom post type
