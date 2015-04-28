@@ -137,6 +137,12 @@ namespace WordPressSharp
                 WordPressSiteConfig.Password, filter);
         }
 
+        public Category[] GetCategories()
+        {
+            return WordPressService.GetAllCategories(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password);
+        }
+
         public Comment GetComment(int commentId)
         {
             return WordPressService.GetComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
@@ -155,12 +161,18 @@ namespace WordPressSharp
                 WordPressSiteConfig.Password, postId);
         }
 
+		/// <summary>
+		/// Creates a new comment.
+		/// </summary>
+		/// <param name="comment">The comment.</param>
+		/// <returns>The id of the newly created comment.</returns>
+		public int NewComment(Comment comment)
+		{
+			var comment_put = new Comment_Put();
+			CopyPropertyValues(comment, comment_put);
 
-        public Category[] GetCategories()
-        {
-            return WordPressService.GetAllCategories(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
-                WordPressSiteConfig.Password);
-        }
+			return WordPressService.NewComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, Convert.ToInt32(comment.PostId), comment_put);
+		}
 
 
         /// <summary>

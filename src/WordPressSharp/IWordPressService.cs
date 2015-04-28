@@ -69,11 +69,8 @@ namespace WordPressSharp
         [XmlRpcMethod("wp.newTerm")]
         string NewTerm(int blog_id, string username, string password, Term term);
 
-
         [XmlRpcMethod("wp.setOptions")]
         XmlRpcStruct SetOptios(int blog_id, string username, string password, XmlRpcStruct options);
-
-
 
         // DELETE
         [XmlRpcMethod("wp.deleteTerm")]
@@ -81,5 +78,17 @@ namespace WordPressSharp
 
         [XmlRpcMethod("wp.deletePost")]
         bool DeletePost(int blog_id, string username, string password, int post_id);
+
+		/// <summary>
+		/// Creates a new comment.
+		/// </summary>
+		/// <param name="blog_id">The blog id.</param>
+		/// <param name="username">The username.</param>
+		/// <param name="password">The password.</param>
+		/// <param name="post_id">The post id.</param>
+		/// <param name="comment">The comment.</param>
+		/// <returns>The id of the newly created comment.</returns>
+		[XmlRpcMethod("wp.newComment")]
+		int NewComment(int blog_id, string username, string password, int post_id, Comment_Put comment);
     }
 }
