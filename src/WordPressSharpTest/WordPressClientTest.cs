@@ -5,43 +5,43 @@ using WordPressSharp.Models;
 
 namespace WordPressSharpTest
 {
-	[TestClass]
-	public class WordPressClientTest
-	{
-		/// <summary>
-		/// Creates the default client.
-		/// </summary>
-		/// <returns></returns>
-		private static WordPressClient CreateDefaultClient()
-		{
-			return new WordPressClient();
-		}
+    [TestClass]
+    public class WordPressClientTest
+    {
+        /// <summary>
+        /// Creates the default client.
+        /// </summary>
+        /// <returns></returns>
+        private static WordPressClient CreateDefaultClient()
+        {
+            return new WordPressClient();
+        }
 
-		/// <summary>
-		/// Tests the default configuration. Note: settings must be present is App.config.
-		/// </summary>
-		[TestMethod]
-		public void TestDefaultConfiguration()
-		{
-			//if settings are wrong - CreateDefaultClient will throw an error
-			using (var client = CreateDefaultClient())
-			{
-				Assert.IsNotNull(client.WordPressService, "WordPressService is null.");
-			}
-		}
+        /// <summary>
+        /// Tests the default configuration. Note: settings must be present is App.config.
+        /// </summary>
+        [TestMethod]
+        public void TestDefaultConfiguration()
+        {
+            //if settings are wrong - CreateDefaultClient will throw an error
+            using (var client = CreateDefaultClient())
+            {
+                Assert.IsNotNull(client.WordPressService, "WordPressService is null.");
+            }
+        }
 
-		/// <summary>
-		/// Tests the get posts.
-		/// </summary>
-		[TestMethod]
-		public void TestGetPosts()
-		{
-			using (var client = CreateDefaultClient())
-			{
-				//if something is wrong - GetPosts will throw an error
-				var posts = client.GetPosts(new PostFilter());
-			}
-		}
+        /// <summary>
+        /// Tests the get posts.
+        /// </summary>
+        [TestMethod]
+        public void TestGetPosts()
+        {
+            using (var client = CreateDefaultClient())
+            {
+                //if something is wrong - GetPosts will throw an error
+                var posts = client.GetPosts(new PostFilter());
+            }
+        }
 
         /// <summary>
         /// Test Create Post
@@ -54,56 +54,56 @@ namespace WordPressSharpTest
                 var post = new Post
                 {
                     PostType = "post", // "post" or "page"
-                    Title = "Test Title", 
-                    Content = "Test", 
+                    Title = "Test Title",
+                    Content = "Test",
                     PublishDateTime = DateTime.Now,
                     Status = "publish" // "draft" or "publish"
                 };
 
                 var id = client.NewPost(post);
 
-				Assert.IsFalse(String.IsNullOrEmpty(id));
+                Assert.IsFalse(String.IsNullOrEmpty(id));
 
-				client.DeletePost(Convert.ToInt32(id));
+                client.DeletePost(Convert.ToInt32(id));
             }
         }
 
-		/// <summary>
-		/// Creates a post and a comment.
-		/// </summary>
-		[TestMethod]
-		public void CreatePostAndComment()
-		{
-			using (var client = CreateDefaultClient())
-			{
-				var post = new Post
-				{
-					PostType = "post", // "post" or "page"
-					Title = "Test CreatePostAndComment",
-					Content = "Testing CreatePostAndComment",
-					Status = "draft" // "draft" or "publish"
-				};
+        /// <summary>
+        /// Creates a post and a comment.
+        /// </summary>
+        [TestMethod]
+        public void CreatePostAndComment()
+        {
+            using (var client = CreateDefaultClient())
+            {
+                var post = new Post
+                {
+                    PostType = "post", // "post" or "page"
+                    Title = "Test CreatePostAndComment",
+                    Content = "Testing CreatePostAndComment",
+                    Status = "draft" // "draft" or "publish"
+                };
 
-				var postId = Convert.ToInt32(client.NewPost(post));
-				
-				//test id
-				Assert.IsTrue(postId > 0);
+                var postId = Convert.ToInt32(client.NewPost(post));
 
-				var comment = new Comment
-				{
-					PostId = postId.ToString(),
-					Author = "WordPressSharpTestPilot",
-					Content = "Hello world!"
-				};
+                //test id
+                Assert.IsTrue(postId > 0);
 
-				var commentId = client.NewComment(comment);
+                var comment = new Comment
+                {
+                    PostId = postId.ToString(),
+                    Author = "WordPressSharpTestPilot",
+                    Content = "Hello world!"
+                };
 
-				//test comment id
-				Assert.IsTrue(commentId > 0);
+                var commentId = client.NewComment(comment);
 
-				//clean up
-				client.DeletePost(Convert.ToInt32(postId));
-			}
-		}
-	}
+                //test comment id
+                Assert.IsTrue(commentId > 0);
+
+                //clean up
+                client.DeletePost(Convert.ToInt32(postId));
+            }
+        }
+    }
 }

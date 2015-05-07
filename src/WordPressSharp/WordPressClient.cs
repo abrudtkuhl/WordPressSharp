@@ -137,6 +137,12 @@ namespace WordPressSharp
                 WordPressSiteConfig.Password, filter);
         }
 
+        public Category[] GetCategories()
+        {
+            return WordPressService.GetAllCategories(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password);
+        }
+
         public Comment GetComment(int commentId)
         {
             return WordPressService.GetComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
@@ -167,6 +173,7 @@ namespace WordPressSharp
 
 			return WordPressService.NewComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, Convert.ToInt32(comment.PostId), comment_put);
 		}
+
 
         /// <summary>
         /// Creates a new entry in WordPress determined by Post.PostType to be a "Post", "Page", or custom post type
