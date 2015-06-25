@@ -5,7 +5,7 @@
 	/// </summary>
 	public static class Order
 	{
-		public static readonly string Ascending = "ascending";
-		public static readonly string Descending = "descending";
+		public static readonly string Ascending = "ASC";
+		public static readonly string Descending = "DESC";
 	}
 }
