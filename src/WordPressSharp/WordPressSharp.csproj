@@ -60,7 +60,7 @@
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostCommentCount.cs" />
     <Compile Include="Models\PostFilter.cs" />
-    <Compile Include="Models\PostThumnailImageMeta.cs" />
+    <Compile Include="Models\PostThumbnailImageMeta.cs" />
     <Compile Include="Models\PostType.cs" />
     <Compile Include="Models\Post_Put.cs" />
     <Compile Include="Models\Taxonomy.cs" />

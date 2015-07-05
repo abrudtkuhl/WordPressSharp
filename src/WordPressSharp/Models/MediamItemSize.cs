@@ -9,12 +9,12 @@ namespace WordPressSharp.Models
         public string File { get; set; }
         
         [XmlRpcMember("width")]
-        public int Width { get; set; }
+        public string Width { get; set; }
         
         [XmlRpcMember("height")]
-        public int Height { get; set; }
+        public string Height { get; set; }
         
-        [XmlRpcMember("mime_type")]
+        [XmlRpcMember("mime-type")]
         public string MimeType { get; set; }
     }
 }

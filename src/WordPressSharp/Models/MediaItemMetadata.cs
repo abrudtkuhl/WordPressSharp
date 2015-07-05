@@ -16,6 +16,6 @@ namespace WordPressSharp.Models
         public string File { get; set; }
 
         [XmlRpcMember("sizes")]
-        public MediaItemSizes Sizes { get; set; }
+        public MediaItemSizes[] Sizes { get; set; }
     }
 }
