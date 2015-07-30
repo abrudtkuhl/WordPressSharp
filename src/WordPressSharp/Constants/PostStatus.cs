@@ -6,7 +6,7 @@
 	public static class PostStatus
 	{
 		public static readonly string Any = "any";
-		public static readonly string Published = "published";
+		public static readonly string Published = "publish";
 		public static readonly string Pending = "pending";
 		public static readonly string Draft = "draft";
 		public static readonly string AutoDraft = "autodraft";
