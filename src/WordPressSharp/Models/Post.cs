@@ -23,6 +23,9 @@ namespace WordPressSharp.Models
         [XmlRpcMember("post_date")]
         public DateTime PublishDateTime { get; set; }
 
+        [XmlRpcMember("post_modified")]
+        public DateTime ModifiedDateTime { get; set; }
+
         [XmlRpcMember("post_content")]
         public string Content { get; set; }
 
