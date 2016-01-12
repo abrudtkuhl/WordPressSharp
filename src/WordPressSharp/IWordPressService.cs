@@ -40,6 +40,9 @@ namespace WordPressSharp
         [XmlRpcMethod("wp.getUsers")]
         User[] GetUsers(int blog_id, string username, string password, UserFilter filter);
 
+        [XmlRpcMethod("wp.getProfile")]
+        User GetProfile(int blog_id, string username, string password);
+
         [XmlRpcMethod("wp.getComment")]
         Comment GetComment(int blog_id, string username, string password, int comment_id);
 

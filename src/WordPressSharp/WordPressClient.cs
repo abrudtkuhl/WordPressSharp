@@ -136,6 +136,11 @@ namespace WordPressSharp
             return WordPressService.GetUsers(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
                 WordPressSiteConfig.Password, filter);
         }
+        public User GetProfile()
+        {
+            return WordPressService.GetProfile(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
+                WordPressSiteConfig.Password);
+        }
 
         public Category[] GetCategories()
         {
