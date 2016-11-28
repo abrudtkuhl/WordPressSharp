@@ -217,16 +217,19 @@ namespace WordPressSharp
             var post_put = new Post_Put();
             CopyPropertyValues(post, post_put);
 
-            var terms = new XmlRpcStruct();
-            var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
-            foreach (var grp in termTaxes)
+            if (post.Terms != null)
             {
-                var termIds = grp.Select(g => g.Id).ToArray();
-                terms.Add(grp.Key, termIds);
-            }
+                var terms = new XmlRpcStruct();
+                var termTaxes = post.Terms.GroupBy(t => t.Taxonomy);
+                foreach (var grp in termTaxes)
+                {
+                    var termIds = grp.Select(g => g.Id).ToArray();
+                    terms.Add(grp.Key, termIds);
+                }
 
-            
-            post_put.Terms = terms;
+
+                post_put.Terms = terms;
+            }
 
 
             return WordPressService.EditPost(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username, WordPressSiteConfig.Password, int.Parse(post_put.Id), post_put);
