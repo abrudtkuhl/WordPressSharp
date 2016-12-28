@@ -2,6 +2,8 @@
 using CookComputing.XmlRpc;
 using System.Diagnostics;
 
+using WordPressSharp.Extensions;
+
 namespace WordPressSharp.Models
 {
     [DebuggerDisplay("{GetType().Name,nq}: Id={Id, nq}, Title={Title}")]
@@ -52,13 +54,40 @@ namespace WordPressSharp.Models
 
         [XmlRpcMember("post_parent")]
         public string ParentId { get; set; }
-        
-		public string FeaturedImageId { get; set; }
-        
+
+        public string FeaturedImageId { get; set; }
+
+        [XmlRpcMember("post_thumbnail")]
+        public object FeaturedImage { get; set; }
+
         [XmlRpcMember("post_excerpt")]
         public string Exerpt { get; set; }
 
 		[XmlRpcMember("comment_status")]
 		public string CommentStatus { get; set; }
+
+
+        MediaItem _parsedFeaturedImage;
+        public bool HasFeaturedImage()
+        {
+            if (this._parsedFeaturedImage != null)
+            {
+                return true;
+            }
+
+            return this.GetFeaturedImage() != null;
+        }
+
+        public MediaItem GetFeaturedImage()
+        {
+            var image = this.FeaturedImage as XmlRpcStruct;
+            if (image != null)
+            {
+                this._parsedFeaturedImage = image.ToObject<MediaItem>();
+                return this._parsedFeaturedImage;
+            }
+
+            return null;
+        }
     }
 }
