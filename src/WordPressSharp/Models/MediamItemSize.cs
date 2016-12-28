@@ -14,7 +14,7 @@ namespace WordPressSharp.Models
         [XmlRpcMember("height")]
         public int Height { get; set; }
         
-        [XmlRpcMember("mime_type")]
+        [XmlRpcMember("mime-type")]
         public string MimeType { get; set; }
     }
 }
