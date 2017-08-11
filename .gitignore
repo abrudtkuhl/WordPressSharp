@@ -183,3 +183,5 @@ $RECYCLE.BIN/
 # Sitemap Files
 #*.xml
 #*.sitemap
+
+src/WordPressSharp/WordPressSharp.userprefs
