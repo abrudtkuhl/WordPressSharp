@@ -142,12 +142,6 @@ namespace WordPressSharp
                 WordPressSiteConfig.Password);
         }
 
-        public Category[] GetCategories()
-        {
-            return WordPressService.GetAllCategories(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
-                WordPressSiteConfig.Password);
-        }
-
         public Comment GetComment(int commentId)
         {
             return WordPressService.GetComment(WordPressSiteConfig.BlogId, WordPressSiteConfig.Username,
