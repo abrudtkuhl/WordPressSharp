@@ -13,6 +13,6 @@ namespace WordPressSharp.Models
         public string Key { get; set; }
 
         [XmlRpcMember("value")]
-        public string Value { get; set; }
+        public object Value { get; set; }
     }
 }

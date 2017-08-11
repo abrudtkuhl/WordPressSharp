@@ -48,6 +48,7 @@
     <Compile Include="Constants\PostStatus.cs" />
     <Compile Include="Constants\TaxonomyType.cs" />
     <Compile Include="Constants\PostType.cs" />
+    <Compile Include="Extensions\ParsingExtensions.cs" />
     <Compile Include="IWordPressService.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Comment.cs" />
