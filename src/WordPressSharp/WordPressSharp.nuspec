@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>WordPressSharp</id>
+    <version>1.1.0</version>
+    <authors>Andy Brudtkuhl</authors>
+    <projectUrl>http://abrudtkuhl.github.io/WordPressSharp</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A C# library for interacting with the WordPress XML-RPC API.</description>
+    <title>WordPress Sharp - C# XML-RPC WordPress API</title>
+    <summary>A C# utility for interacting with the WordPress XML-RPC API.</summary>
+    <tags>WordPress XML-RPC</tags>
+  </metadata>
+</package>
