@@ -11,6 +11,17 @@
     <AssemblyName>WordPressSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PackOnBuild>true</PackOnBuild>
+    <PackageVersion>1.0.1</PackageVersion>
+    <Authors>abrudtkuhl</Authors>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <Owners>@abrudtkuhl</Owners>
+    <PackageProjectUrl>http://abrudtkuhl.github.io/WordPressSharp</PackageProjectUrl>
+    <Summary>A C# library for interacting with the WordPress XML-RPC API.</Summary>
+    <Title>WordPressSharp</Title>
+    <Description>A C# library for interacting with the WordPress XML-RPC API.</Description>
+    <ReleaseVersion>1.0.1</ReleaseVersion>
+    <PackageTags>WordPress XML-RPC</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

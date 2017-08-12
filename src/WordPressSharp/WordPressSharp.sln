@@ -30,4 +30,8 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = A C# library for interacting with the WordPress XML-RPC API.
+		version = 1.0.1
+	EndGlobalSection
 EndGlobal
