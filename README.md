@@ -38,7 +38,7 @@ As an alternative you can use the `WordPressSiteConfig` class to store configura
         var id = Convert.ToInt32(client.NewPost(post));
     }
 
-##C reate Post Tag ##
+## Create Post Tag ##
 
     using (var client = new WordPressClient())
     {
