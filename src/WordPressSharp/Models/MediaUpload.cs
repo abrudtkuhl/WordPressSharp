@@ -101,27 +101,28 @@ namespace WordPressSharp.Models
 			return data;
 		}
 
-		/// <summary>
-		/// Creates the data structure from the URL.
-		/// </summary>
-		/// <param name="url">The URL.</param>
-		/// <param name="mimeType">Type of the MIME. If <c>null</c> the ContentType header of the url will be used.</param>
-		/// <returns>
-		/// The data structure.
-		/// </returns>
-		/// <exception cref="System.ArgumentException">Url is a required parameter.</exception>
-		public static Data CreateFromUrl(string url, string mimeType = null)
-		{
-			if (url == null)
-			{
-				throw new ArgumentException("Url is a required parameter.", "url");
-			}
+        /// <summary>
+        /// Creates the data structure from the URL.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="mimeType">Type of the MIME. If <c>null</c> the ContentType header of the url will be used.</param>
+        /// <returns>
+        /// The data structure.
+        /// </returns>
+        /// <exception cref="System.ArgumentException">Url is a required parameter.</exception>
+        public static Data CreateFromUrl(string url, string mimeType = null, NetworkCredential credential = null)
+        {
+            if (url == null)
+            {
+                throw new ArgumentException("Url is a required parameter.", "url");
+            }
 
-			var bytes = new byte[0];
+            var bytes = new byte[0];
 
-			using (WebClient wc = new WebClient())
-			{
-				Data data = new Data();
+            using (WebClient wc = new WebClient())
+            {
+                if (credential != null) wc.Credentials = credential;
+                Data data = new Data();
 				data.Bits = wc.DownloadData(url);
 				data.Name = Path.GetFileName(url);
 
