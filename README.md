@@ -119,6 +119,17 @@ dotnet test src/WordPressSharpTest/WordPressSharpTest.csproj
 
 The test suite uses a fake HTTP handler and does not require a WordPress server or credentials.
 
+## Publish to NuGet
+
+Releases are published through GitHub Actions using NuGet Trusted Publishing (OIDC), without a long-lived NuGet API key. Configure a NuGet.org Trusted Publishing policy with:
+
+- Repository owner: `abrudtkuhl`
+- Repository: `WordPressSharp`
+- Workflow file: `publish-nuget.yml`
+- Environment: leave unset unless the workflow is updated to use a GitHub environment
+
+Add a GitHub Actions repository variable named `NUGET_USER` containing your NuGet.org profile name (not your email address). Publishing happens when a GitHub release is published. To publish an existing release, run **Publish NuGet package** from the Actions tab and enter its release tag, such as `v2.0.0`.
+
 ## Security note
 
 Create an Application Password for a dedicated WordPress user with only the capabilities it needs. Store it in a secret store or environment variable, not in source control. WordPress Application Passwords are intended for HTTPS connections.
